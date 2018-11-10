@@ -29,10 +29,15 @@ Change your Matlab working directory to the folder where you download my code. O
 ## Results
 1.Open Matlab, Normally Speak to microphone. Speech identification works well and can identify my speech. When there is a short break between my two sentences, the classifier can find that short blank.
 
+![Classfier performance for my speak in normal emotion and pace](https://github.com/zhiyuan8/speech_detection/figure/1.jpg)
+
 2.Open Matlab, make some noises. Noise identification works well.  At first some high-frequent noises (clapping table, knock keyboards) are hard to tell, but after adding a dB filter, the classifier works better. 
+
+![Classfier performance for some noise](https://github.com/zhiyuan8/speech_detection/figure/2.jpg)
 
 3.Open Matlab, Speak violently or broadcast an angry audio from phone. In this example the abusive classifier works well. But when I test it with my voice, it is hard to distinguish. Due to the fact that most of training audios are scream shouting, my low male voice is hard to classify when I speak violently.
 
+![Classfier performance for a 20s angry female speech from Internet](https://github.com/zhiyuan8/speech_detection/figure/3.jpg)
 
 ## Contributing
 
@@ -41,5 +46,5 @@ Email: zhiyuan.li1995@hotmail.com
 
 ## Acknowledgments
 
-* Thanks for Theodoros Giannakopoulos's Matlab Audio Analysis Library and his wonderful book Introduction to Audio Analysis (https://www.elsevier.com/books/introduction-to-audio-analysis/giannakopoulos/978-0-08-099388-1)
+* Thanks for Theodoros Giannakopoulos's Matlab Audio Analysis Library and his wonderful book <<Introduction to Audio Analysis>> (https://www.elsevier.com/books/introduction-to-audio-analysis/giannakopoulos/978-0-08-099388-1)
 * Thanks for Professor Ashish Goel for this giving project.Thanks for Nikhil Garg's and Sukolsak Sakshuwong's advice during weekly meetings
