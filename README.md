@@ -16,11 +16,6 @@ git clone https://github.com/zhiyuan8/speech_detection.git
 Change your Matlab working directory to the folder where you download my code. Open '''main.m''' and press '''run''' button in matlab. A figure will be generated and you can speak to your computer and see performance of this classifier.
 
 ## Tranining data source
-| Command | Description |
-| --- | --- |
-| git status | List all new or modified files |
-| git diff | Show file differences that haven't been staged |
-
 
 | Class | Description |# of files | Database|
 | --- | --- | --- | --- |
@@ -32,12 +27,17 @@ Change your Matlab working directory to the folder where you download my code. O
 |Non-speech | Noise indoor(breath, yawns, keyboards, electronic devices...)| ≈200 | https://github.com/amsehili/noise-of-life |
 
 ## Results
+1.Open Matlab, Normally Speak to microphone. Speech identification works well and can identify my speech. When there is a short break between my two sentences, the classifier can find that short blank.
 
+2.Open Matlab, make some noises. Noise identification works well.  At first some high-frequent noises (clapping table, knock keyboards) are hard to tell, but after adding a dB filter, the classifier works better. 
+
+3.Open Matlab, Speak violently or broadcast an angry audio from phone. In this example the abusive classifier works well. But when I test it with my voice, it is hard to distinguish. Due to the fact that most of training audios are scream shouting, my low male voice is hard to classify when I speak violently.
 
 
 ## Contributing
 
 * **Jim Zhiyuan Li** - *Initial work* 
+Email: zhiyuan.li1995@hotmail.com
 
 ## Acknowledgments
 
