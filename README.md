@@ -1,4 +1,4 @@
-# Real-time Speech-non-speech classifier
+# A Demo
 
 This matlab classifier aims to distinguish normal speech, abusive/angry/violate speech and environmental noise. The classifier is based on audio features and KNN. Noted, codes for short-term feature extraction is based on Theodoros Giannakopoulos's Matlab Audio Analysis Library (https://www.mathworks.com/matlabcentral/fileexchange/45831-matlab-audio-analysis-library)
 
