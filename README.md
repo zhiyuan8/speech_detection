@@ -29,7 +29,7 @@ Change your Matlab working directory to the folder where you download my code. O
 ## Results
 1.Open Matlab, Normally Speak to microphone. Speech identification works well and can identify my speech. When there is a short break between my two sentences, the classifier can find that short blank.
 
-![Classfier performance for my speak in normal emotion and pace](https://github.com/zhiyuan8/speech_detection/figures/1.jpg)
+![Classfier performance for my speak in normal emotion and pace](https://github.com/zhiyuan8/speech_detection/master/figures/1.jpg)
 
 2.Open Matlab, make some noises. Noise identification works well.  At first some high-frequent noises (clapping table, knock keyboards) are hard to tell, but after adding a dB filter, the classifier works better. 
 
