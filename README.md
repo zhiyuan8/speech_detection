@@ -46,5 +46,5 @@ Email: zhiyuan.li1995@hotmail.com
 
 ## Acknowledgments
 
-* Thanks for Theodoros Giannakopoulos's Matlab Audio Analysis Library and his wonderful book <<Introduction to Audio Analysis>> (https://www.elsevier.com/books/introduction-to-audio-analysis/giannakopoulos/978-0-08-099388-1)
-* Thanks for Professor Ashish Goel for this giving project.Thanks for Nikhil Garg's and Sukolsak Sakshuwong's advice during weekly meetings
+* Thanks for Theodoros Giannakopoulos's Matlab Audio Analysis Library and his wonderful book <Introduction to Audio Analysis> (https://www.elsevier.com/books/introduction-to-audio-analysis/giannakopoulos/978-0-08-099388-1)
+* Thanks for Professor Ashish Goel for this giving project.Thanks for Nikhil Garg's and Sukolsak Sakshuwong's advice during weekly meetings.
