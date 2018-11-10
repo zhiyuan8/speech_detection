@@ -11,7 +11,7 @@ Most bugs in old versions are due to different names of functions. For example, 
 
 Download my matlab code
 ```
-Give the example
+git clone https://github.com/zhiyuan8/speech_detection.git
 ```
 Change your Matlab working directory to the folder where you download my code. Open '''main.m''' and press '''run''' button in matlab. A figure will be generated and you can speak to your computer and see performance of this classifier.
 
