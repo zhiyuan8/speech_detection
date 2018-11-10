@@ -15,6 +15,22 @@ Give the example
 ```
 Change your Matlab working directory to the folder where you download my code. Open '''main.m''' and press '''run''' button in matlab. A figure will be generated and you can speak to your computer and see performance of this classifier.
 
+## Tranining data source
+| Command | Description |
+| --- | --- |
+| git status | List all new or modified files |
+| git diff | Show file differences that haven't been staged |
+
+
+| Class | Description |# of files | Database|
+| --- | --- | --- | --- |
+| Normal Speech | Voice on phone | ≈250 | http://www.speech.cs.cmu.edu/databases/pda/README.html|
+|Normal Speech | Daily speech | ≈250 | https://github.com/vocobox/human-voice-dataset|
+|Abusive Speech |Scream, shouts, very loud angry sounds |≈300|https://www.freesoundeffects.com/free-sounds/human-sound-effects-10037/|
+|Abusive Speech |Abusive words |≈200 |https://freesound.org/search/?q=shit|
+|Non-speech | Noise in life(animals, music, cars, alarms, machines...)| ≈800 | https://github.com/karoldvl/ESC-50|
+|Non-speech | Noise indoor(breath, yawns, keyboards, electronic devices...)| ≈200 | https://github.com/amsehili/noise-of-life |
+
 ## Results
 
 
