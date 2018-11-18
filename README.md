@@ -21,7 +21,7 @@ https://www.dropbox.com/sh/ysphojpsy0gy1i0/AACPxTSIqPiRnOBROvT6Ee6Sa?dl=0
 The training data comes from different databases, and I use matlab to change sampling frequency and nbits. All my training audios have been transferred to 16000 kHz and 16 nbits (see ```Training and Testing by User``` Section). It can be regarded as audio compression because some audios are 44100kHz or 22050kHz.
 In speech / environmental noise identification, there are around 1000 files for each class. The comments help you find the corresponding folder after you download the whole datasets. 
 | Class | Description |# of files | Database| Comments|
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 |Speech | Voice on phone | ≈350 | http://www.speech.cs.cmu.edu/databases/pda/| Very clear voice by phone recording. I randomly use some files
 |Speech | Daily speech | ≈100 | https://github.com/amsehili/noise-of-life | See 'speech' folder in this repo
 |Speech | 'A' 'E' 'I' 'O' 'U' | ≈50 | https://github.com/vocobox/human-voice-dataset| Basic pronouncation for 'A' 'E' 'I' 'O' 'U'
