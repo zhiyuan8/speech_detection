@@ -69,12 +69,18 @@ A figure will be generated and you can speak to your computer and see performanc
 All my training data are uploaded this this Dropbox link: https://www.dropbox.com/sh/ysphojpsy0gy1i0/AACPxTSIqPiRnOBROvT6Ee6Sa?dl=0
 The training data comes from different databases, and I use matlab to change sampling frequency and nbits. All my training audios have been transferred to 16000 kHz and 16 nbits (see ```Training and Testing by User``` Section). It can be regarded as audio compression because some audios are 44100kHz or 22050kHz.
 
-In speech / environmental noise identification, there are around 1000 files for each class. The comments help you find the corresponding folder after you download the whole datasets. 
+In speech / environmental noise identification, there are around 1000 files for each class. The comments help you find the corresponding folder after you download the whole datasets.
+
 | Class | Description |# of files | Database| Comments|
 | --- | --- | --- | --- | --- |
-|Abusive Speech | Male/female/baby scream or cry | ≈200 | https://github.com/amsehili/noise-of-life |See 'BabyCry' 'FemaleCry' 'FemaleScream' 'MaleScream' folder in this repo|
-|Abusive Speech | angry abusive speeches | ≈200 | https://freesound.org/search/?q=abusive&f=&s=score+desc&advanced=0&g=1 |Search 'f_ck', 'sh_t','abusive','cursive'... Be ready for a mental pollution... |
-|Normal Speech | Randomly choosen speeches | ≈400 | from 'Voice on phone' and 'Daily speech' above | Randomly choosen files |
+| Speech | Voice on phone | ≈350 | http://www.speech.cs.cmu.edu/databases/pda/ | a | 
+| Speech | Daily speech | ≈100 | https://github.com/amsehili/noise-of-life | a |
+| Speech | 'A' 'E' 'I' 'O' 'U' | ≈50 | https://github.com/vocobox/human-voice-dataset | a |
+| Speech | Male/female/baby scream or cry | ≈200 | https://github.com/amsehili/noise-of-life | a |
+| Speech | Scream, shout | ≈50 | https://www.freesoundeffects.com/free-sounds/human-sound-effects-10037/ | a |
+| Speech | angry abusive speeches | ≈200 | https://freesound.org/search/?q=abusive&f=&s=score+desc&advanced=0&g=1 | a |
+| Noice | Noise in life(animals, music, cars, alarms, machines...)| ≈800 | https://github.com/karoldvl/ESC-50 | a |
+| Noice | Noise indoor (breath, yawns, keyboards, electronic devices...)| ≈200 | https://github.com/amsehili/noise-of-life | a |
 
 In speech / abusive speech identification, there are around 400 files for each class. The comments help you find the corresponding folder after you download the whole datasets.
 
