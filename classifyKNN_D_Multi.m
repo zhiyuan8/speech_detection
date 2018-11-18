@@ -1,4 +1,4 @@
-function [Ps, winnerClass] = classifyKNN_D_Multi(F, testSample, k, NORMALIZE, useL1distance )
+function [Ps, winnerClass,finalIndex] = classifyKNN_D_Multi(F, testSample, k, NORMALIZE, useL1distance )
 % This function is used for classifying an uknown sample using the kNN
 % algorithm, in its multi-class form.
 %
@@ -23,12 +23,15 @@ end
 numOfDims = zeros( 1, numOfClasses );
 numOfTrainSamples = zeros( 1, numOfClasses );
 d = cell(numOfClasses,1);
+index = cell(numOfClasses,1); % save index of d(i)
+
 % d{i} is a vector, whose elements represent the distance of the testing
 % sample from all the samples of i-th class
 testSample(isnan(testSample)) = 0.0;
 for i=1:numOfClasses
     [ numOfDims(i), numOfTrainSamples(i) ] = size( F{i} );
     d{i} = inf*ones(max(numOfTrainSamples), 1); % we fill it with inf values
+    index{i} = zeros(max(numOfTrainSamples), 1); % declare the size of index{i}
     F{i}(isnan(F{i})) = 0.0;    
 end
 if (length(testSample)>1)
@@ -41,7 +44,7 @@ if (length(testSample)>1)
                 %sum(sum(isnan(F{i}')))
                 d{i} = sqrt ( sum( ((repmat(testSample, [numOfTrainSamples(i) 1]) - F{i}').^2 ),2) ); % sqrt of L2                
             end
-            d{i} = sort(d{i});            
+            [d{i},index{i}] = sort(d{i});            
             d{i}(end+1:max(numOfTrainSamples)) = inf;                                    
         else
             d{i} = inf;
@@ -67,14 +70,19 @@ for j=1:k
     [MIN, IMIN] = min(curArray);
     kAll(IMIN) = kAll(IMIN) + 1;
 end
-Ps=[];
+finalIndex = cell(numOfClasses,1); % save final index result
+for i=1:numOfClasses % get the index of filename
+  finalIndex{i} = index{i} (1:kAll(i)); % get first kAll(i) index of filenames
+end
+
+Ps=zeros(1,numOfClasses);
 if ( NORMALIZE == 0 )
     Ps = (kAll ./ k);
 elseif (NORMALIZE == 1 ) %Normalize=1, weighted probability by # of training datasets
     Ps = kAll ./ numOfTrainSamples'; % Ps is normalized by # of training examples
     Ps = Ps / sum(Ps);% make sure Ps sums to 1
 else %Normalize=2, weighted probability by 1/sqrt(distance).
-    for (j = 1:numOfClasses)
+    for j = 1:numOfClasses
         if (kAll(j) == 0)
             Ps(j) = 0;   % this class does not have any elements
         else

@@ -1,4 +1,4 @@
-function [recorder,samples,label1, P1, trainchosen1, label2, P2, trainchosen2, calc_time] = Real_Time_Recording...
+function [recorder,samples,label1, P1, trainchosen1, label2, P2, trainchosen2, calc_time] = Real_Time_KNN_others...
     (Fs, nbit, durationSecs, modelSpeech_Non,modelSpeech_Abuse,KNN_Non,KNN_Abuse,filter_dec1,filter_dec2) 
 
     % load modelSpeech_Non & modelSpeech_Abuse model
@@ -27,10 +27,7 @@ function [recorder,samples,label1, P1, trainchosen1, label2, P2, trainchosen2, c
     hAxes1 = subplot(3,1,1); % figure for real-time audio wave
     hAxes2 = subplot(3,1,2); % figure for real-time speechnon-speech classfication
     hAxes3 = subplot(3,1,3); % figure for real-time speechabusive speech classfication
-    hFig1   = figure; % create a figure with two subplots
-    hFig1.Position= [20 150 150 300]; % Resize the figure I am going to show
-    hAxes4 = subplot(1,1,1);
-    hPlot4 = plot(hAxes4,NaN,NaN);
+    
     % create the graphics handles to the data that will be plotted on each axes
     hPlot1 = plot(hAxes1,NaN,NaN);
     legend(hAxes1,'Wave')
@@ -42,10 +39,10 @@ function [recorder,samples,label1, P1, trainchosen1, label2, P2, trainchosen2, c
     set(hAxes1.Title,'String','Real-time Audio Wave');
     set(hAxes1.XLabel,'String','Time(s)');
     set(hAxes1.YLabel,'String','Scaled Amplitude');
-    set(hAxes2.Title,'String','Speech Detection');
+    set(hAxes2.Title,'String',modelSpeech_Non);
     set(hAxes2.XLabel,'String','Time(s)');
     set(hAxes2.YLabel,'String','Probability');
-    set(hAxes3.Title,'String','Abusive Speech Detection');
+    set(hAxes3.Title,'String',modelSpeech_Abuse);
     set(hAxes3.XLabel,'String','Time(s)');
     set(hAxes3.YLabel,'String','Probability');
 

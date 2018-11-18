@@ -47,7 +47,7 @@ end
 % A large for-loop till the end of this function
 for i=1:numOfFrames % for each frame
     % get current frame:
-    frame  = signal(curPos:curPos+windowLength-1);
+    frame  = double(signal(curPos:curPos+windowLength-1));
     frame  = frame .* Ham;
     if ( (DFT_dec ==true)||(MFCC_dec ==true) )  % compute DFT features before for loop
         frameFFT = getDFT(frame, fs);
