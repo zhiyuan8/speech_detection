@@ -1,6 +1,8 @@
 # A Demo
 
-This matlab classifier aims to distinguish normal speech, abusive/angry/violate speech and environmental noise. The classifier is based on audio features and KNN. SVM and decision tree are also tested, but are not chosen due to poor performance. Noted, codes for short-term feature extraction is based on Theodoros Giannakopoulos's Matlab Audio Analysis Library (https://www.mathworks.com/matlabcentral/fileexchange/45831-matlab-audio-analysis-library)
+This matlab classifier aims to distinguish normal speech, abusive/angry/violate speech and environmental noise.  
+The classifier is based on audio features and KNN. SVM and decision tree are also tested, but are not chosen due to poor performance.  
+My training data, reports and other files can be found at this dropbox link: https://www.dropbox.com/sh/s4fho148k6l3npz/AADJnnfqUJlQU_0QIEMbSsfCa?dl=0
 
 ### Prerequisites
 Matlab R2014 or higher (not quite sure...)
@@ -19,7 +21,7 @@ Download my matlab code
 ```
 git clone https://github.com/zhiyuan8/speech_detection.git
 ```
-Change your Matlab working directory to the folder where you download my code. Open '''main.m''' file. Go to ```load KNN model and do normalization``` section, paste the code in your matlab console.
+Change your Matlab working directory to the folder where you download my code. Open '''my_code_real_time.m''' file. Go to ```load KNN model and do normalization``` section, paste the code in your matlab console.
 ```
 clear all;% close worksheet
 clc;% close console
