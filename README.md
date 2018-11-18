@@ -42,7 +42,13 @@ durationSecs=30;
 Fs=16000; %Keep consistant with 16 kHz that I use for training datasets
 nbit=16; %Keep consistant with 16 nbits that I use for training datasets
 ```
-The only part you shall change is 'durationSecs' which indicates the length of this audio recording. I set it as 30s.
+The only part you shall change is 'durationSecs' which indicates the length of this audio recording. I set it as 30s. The codes above tells matlab what features you choose for detection, and the parameters for audio recorder and KNN classifier.
+Then, paste the code above in matlab console to launch detection:
+```
+[recorder,samples,label1, P1, trainchosen1, label2, P2, trainchosen2, calc_time] ...
+    = Real_Time_KNN(Fs,nbit, durationSecs,modelSpeech_Non,modelSpeech_Abuse,...
+        KNN_Non,KNN_Abuse,filter_dec1,filter_dec2);
+```
 A figure will be generated and you can speak to your computer and see performance of this classifier.
 
 ## Results
@@ -66,14 +72,7 @@ The training data comes from different databases, and I use matlab to change sam
 In speech / environmental noise identification, there are around 1000 files for each class. The comments help you find the corresponding folder after you download the whole datasets. 
 | Class | Description |# of files | Database| Comments|
 | --- | --- | --- | --- | --- |
-|Speech | Voice on phone | ≈350 | http://www.speech.cs.cmu.edu/databases/pda/ | a|
-|Speech | Daily speech | ≈100 | https://github.com/amsehili/noise-of-life | a|
-|Speech | 'A' 'E' 'I' 'O' 'U' | ≈50 | https://github.com/vocobox/human-voice-dataset | a|
-|Speech | Male/female/baby scream or cry | ≈200 | https://github.com/amsehili/noise-of-life |  a|
-|Speech | Scream, shout | ≈50 | https://www.freesoundeffects.com/free-sounds/human-sound-effects-10037/ | a |
-|Speech | angry abusive speeches | ≈200 | https://freesound.org/search/?q=abusive&f=&s=score+desc&advanced=0&g=1 | a |
-|Noice | Noise in life(animals, music, cars, alarms, machines...)| ≈800 | https://github.com/karoldvl/ESC-50 | a |
-|Noice | Noise indoor (breath, yawns, keyboards, electronic devices...)| ≈200 | https://github.com/amsehili/noise-of-life | a | 
+| Speech | Voice on phone | ≈350 | http://www.speech.cs.cmu.edu/databases/pda/ | a | 
 
 In speech / abusive speech identification, there are around 400 files for each class. The comments help you find the corresponding folder after you download the whole datasets.
 
