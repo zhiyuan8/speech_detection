@@ -1,6 +1,6 @@
 # A Demo
 
-This matlab classifier aims to distinguish normal speech, abusive/angry/violate speech and environmental noise. The classifier is based on audio features and KNN. Noted, codes for short-term feature extraction is based on Theodoros Giannakopoulos's Matlab Audio Analysis Library (https://www.mathworks.com/matlabcentral/fileexchange/45831-matlab-audio-analysis-library)
+This matlab classifier aims to distinguish normal speech, abusive/angry/violate speech and environmental noise. The classifier is based on audio features and KNN. SVM and decision tree are also tested, but are not chosen due to poor performance. Noted, codes for short-term feature extraction is based on Theodoros Giannakopoulos's Matlab Audio Analysis Library (https://www.mathworks.com/matlabcentral/fileexchange/45831-matlab-audio-analysis-library)
 
 ### Prerequisites
 
@@ -16,15 +16,29 @@ git clone https://github.com/zhiyuan8/speech_detection.git
 Change your Matlab working directory to the folder where you download my code. Open '''main.m''' and press '''run''' button in matlab. A figure will be generated and you can speak to your computer and see performance of this classifier.
 
 ## Tranining data source
-
-| Class | Description |# of files | Database|
+All my training data are uploaded this this Dropbox link:
+https://www.dropbox.com/sh/ysphojpsy0gy1i0/AACPxTSIqPiRnOBROvT6Ee6Sa?dl=0
+The training data comes from different databases, and I use matlab to change sampling frequency and nbits. All my training audios have been transferred to 16000 kHz and 16 nbits (see ```Training and Testing by User``` Section). It can be regarded as audio compression because some audios are 44100kHz or 22050kHz.
+In speech / environmental noise identification, there are around 1000 files for each class. The comments help you find the corresponding folder after you download the whole datasets. 
+| Class | Description |# of files | Database| Comments|
 | --- | --- | --- | --- |
-| Normal Speech | Voice on phone | ≈250 | http://www.speech.cs.cmu.edu/databases/pda/README.html|
-|Normal Speech | Daily speech | ≈250 | https://github.com/vocobox/human-voice-dataset|
-|Abusive Speech |Scream, shouts, very loud angry sounds |≈300|https://www.freesoundeffects.com/free-sounds/human-sound-effects-10037/|
-|Abusive Speech |Abusive words |≈200 |https://freesound.org/search/?q=shit|
-|Non-speech | Noise in life(animals, music, cars, alarms, machines...)| ≈800 | https://github.com/karoldvl/ESC-50|
-|Non-speech | Noise indoor(breath, yawns, keyboards, electronic devices...)| ≈200 | https://github.com/amsehili/noise-of-life |
+|Speech | Voice on phone | ≈350 | http://www.speech.cs.cmu.edu/databases/pda/| Very clear voice by phone recording. I randomly use some files
+|Speech | Daily speech | ≈100 | https://github.com/amsehili/noise-of-life | See 'speech' folder in this repo
+|Speech | 'A' 'E' 'I' 'O' 'U' | ≈50 | https://github.com/vocobox/human-voice-dataset| Basic pronouncation for 'A' 'E' 'I' 'O' 'U'
+|Speech | Male/female/baby scream or cry | ≈200 | https://github.com/amsehili/noise-of-life |  See 'BabyCry' 'FemaleCry' 'FemaleScream' 'MaleScream' folder in this repo
+|Speech | Scream, shout | ≈50 | https://www.freesoundeffects.com/free-sounds/human-sound-effects-10037/ | Search 'scream', 'shout'
+|Speech | singing a song | ≈50 | https://www.upf.edu/web/mtg/irmas | See 'voi' folder, it means 'voice' 
+|Speech | angry abusive speeches | ≈200 | https://freesound.org/search/?q=abusive&f=&s=score+desc&advanced=0&g=1 | This is the main resource for me to find abusive speeches. Search 'f_ck', 'sh_t','abusive','cursive'... Be ready for a mental pollution...
+|Noice | Noise in life(animals, music, cars, alarms, machines...)| ≈800 | https://github.com/karoldvl/ESC-50 | I randomly choose around 800 files. There are more than 2000 audios.
+|Noice | Noise indoor (breath, yawns, keyboards, electronic devices...)| ≈200 | https://github.com/amsehili/noise-of-life | See 'breathing' 'electricalShaver' 'doorOpening' 'hairDryer' 'handsClapping' 'keyboard' ''keys' 'paper' 'water' 'yawn' folder in this repo 
+
+In speech / abusive speech identification, there are around 400 files for each class. The comments help you find the corresponding folder after you download the whole datasets. 
+
+|Abusive Speech | Male/female/baby scream or cry | ≈200 | https://github.com/amsehili/noise-of-life |  See 'BabyCry' 'FemaleCry' 'FemaleScream' 'MaleScream' folder in this repo
+|Abusive Speech | angry abusive speeches | ≈200 | https://freesound.org/search/?q=abusive&f=&s=score+desc&advanced=0&g=1 | This is the main resource for me to find abusive speeches. Search 'f_ck', 'sh_t','abusive','cursive'... Be ready for a mental pollution...
+|Normal Speech | Randomly choosen speeches | ≈400 | from 'Voice on phone' and 'Daily speech' above | Randomly choose some normal speech files
+
+## Run the classifier
 
 ## Results
 1.Open Matlab, Normally Speak to microphone. Speech identification works well and can identify my speech. When there is a short break between my two sentences, the classifier can find that short blank.
