@@ -72,7 +72,9 @@ The training data comes from different databases, and I use matlab to change sam
 In speech / environmental noise identification, there are around 1000 files for each class. The comments help you find the corresponding folder after you download the whole datasets. 
 | Class | Description |# of files | Database| Comments|
 | --- | --- | --- | --- | --- |
-| Speech | Voice on phone | ≈350 | http://www.speech.cs.cmu.edu/databases/pda/ | a | 
+|Abusive Speech | Male/female/baby scream or cry | ≈200 | https://github.com/amsehili/noise-of-life |See 'BabyCry' 'FemaleCry' 'FemaleScream' 'MaleScream' folder in this repo|
+|Abusive Speech | angry abusive speeches | ≈200 | https://freesound.org/search/?q=abusive&f=&s=score+desc&advanced=0&g=1 |Search 'f_ck', 'sh_t','abusive','cursive'... Be ready for a mental pollution... |
+|Normal Speech | Randomly choosen speeches | ≈400 | from 'Voice on phone' and 'Daily speech' above | Randomly choosen files |
 
 In speech / abusive speech identification, there are around 400 files for each class. The comments help you find the corresponding folder after you download the whole datasets.
 
