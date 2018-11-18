@@ -22,21 +22,21 @@ The training data comes from different databases, and I use matlab to change sam
 In speech / environmental noise identification, there are around 1000 files for each class. The comments help you find the corresponding folder after you download the whole datasets. 
 | Class | Description |# of files | Database| Comments|
 | --- | --- | --- | --- | --- |
-|Speech | Voice on phone | ≈350 | http://www.speech.cs.cmu.edu/databases/pda/| Very clear voice by phone recording. I randomly use some files
-|Speech | Daily speech | ≈100 | https://github.com/amsehili/noise-of-life | See 'speech' folder in this repo
-|Speech | 'A' 'E' 'I' 'O' 'U' | ≈50 | https://github.com/vocobox/human-voice-dataset| Basic pronouncation for 'A' 'E' 'I' 'O' 'U'
-|Speech | Male/female/baby scream or cry | ≈200 | https://github.com/amsehili/noise-of-life |  See 'BabyCry' 'FemaleCry' 'FemaleScream' 'MaleScream' folder in this repo
+|Speech | Voice on phone | ≈350 | http://www.speech.cs.cmu.edu/databases/pda/| Very clear voice by phone recording. I randomly use some files|
+|Speech | Daily speech | ≈100 | https://github.com/amsehili/noise-of-life | See 'speech' folder in this repo|
+|Speech | 'A' 'E' 'I' 'O' 'U' | ≈50 | https://github.com/vocobox/human-voice-dataset| Basic pronouncation for 'A' 'E' 'I' 'O' 'U'|
+|Speech | Male/female/baby scream or cry | ≈200 | https://github.com/amsehili/noise-of-life |  See 'BabyCry' 'FemaleCry' 'FemaleScream' 'MaleScream' folder in this repo|
 |Speech | Scream, shout | ≈50 | https://www.freesoundeffects.com/free-sounds/human-sound-effects-10037/ | Search 'scream', 'shout'
-|Speech | singing a song | ≈50 | https://www.upf.edu/web/mtg/irmas | See 'voi' folder, it means 'voice' 
-|Speech | angry abusive speeches | ≈200 | https://freesound.org/search/?q=abusive&f=&s=score+desc&advanced=0&g=1 | This is the main resource for me to find abusive speeches. Search 'f_ck', 'sh_t','abusive','cursive'... Be ready for a mental pollution...
-|Noice | Noise in life(animals, music, cars, alarms, machines...)| ≈800 | https://github.com/karoldvl/ESC-50 | I randomly choose around 800 files. There are more than 2000 audios.
-|Noice | Noise indoor (breath, yawns, keyboards, electronic devices...)| ≈200 | https://github.com/amsehili/noise-of-life | See 'breathing' 'electricalShaver' 'doorOpening' 'hairDryer' 'handsClapping' 'keyboard' ''keys' 'paper' 'water' 'yawn' folder in this repo 
+|Speech | singing a song | ≈50 | https://www.upf.edu/web/mtg/irmas | See 'voi' folder, it means 'voice' |
+|Speech | angry abusive speeches | ≈200 | https://freesound.org/search/?q=abusive&f=&s=score+desc&advanced=0&g=1 | This is the main resource for me to find abusive speeches. Search 'f_ck', 'sh_t','abusive','cursive'... Be ready for a mental pollution... |
+|Noice | Noise in life(animals, music, cars, alarms, machines...)| ≈800 | https://github.com/karoldvl/ESC-50 | I randomly choose around 800 files. There are more than 2000 audios. |
+|Noice | Noise indoor (breath, yawns, keyboards, electronic devices...)| ≈200 | https://github.com/amsehili/noise-of-life | See 'breathing' 'electricalShaver' 'doorOpening' 'hairDryer' 'handsClapping' 'keyboard' ''keys' 'paper' 'water' 'yawn' folder in this repo | 
 
-In speech / abusive speech identification, there are around 400 files for each class. The comments help you find the corresponding folder after you download the whole datasets. 
+In speech / abusive speech identification, there are around 400 files for each class. The comments help you find the corresponding folder after you download the whole datasets. |
 
-|Abusive Speech | Male/female/baby scream or cry | ≈200 | https://github.com/amsehili/noise-of-life |  See 'BabyCry' 'FemaleCry' 'FemaleScream' 'MaleScream' folder in this repo
-|Abusive Speech | angry abusive speeches | ≈200 | https://freesound.org/search/?q=abusive&f=&s=score+desc&advanced=0&g=1 | This is the main resource for me to find abusive speeches. Search 'f_ck', 'sh_t','abusive','cursive'... Be ready for a mental pollution...
-|Normal Speech | Randomly choosen speeches | ≈400 | from 'Voice on phone' and 'Daily speech' above | Randomly choose some normal speech files
+|Abusive Speech | Male/female/baby scream or cry | ≈200 | https://github.com/amsehili/noise-of-life |  See 'BabyCry' 'FemaleCry' 'FemaleScream' 'MaleScream' folder in this repo |
+|Abusive Speech | angry abusive speeches | ≈200 | https://freesound.org/search/?q=abusive&f=&s=score+desc&advanced=0&g=1 | This is the main resource for me to find abusive speeches. Search 'f_ck', 'sh_t','abusive','cursive'... Be ready for a mental pollution... |
+|Normal Speech | Randomly choosen speeches | ≈400 | from 'Voice on phone' and 'Daily speech' above | Randomly choose some normal speech files |
 
 ## Run the classifier
 
