@@ -7,7 +7,7 @@ My training data, reports and other files can be found at this dropbox link: htt
 
 ## Prerequisites
 Matlab R2014 or higher (not quite sure...)  
-Most bugs in old versions are due to different names of functions. For example, '''wavread''' is used in old version rather than '''audioread'''. To check if your version of matlab is suitable, type in your matlab console
+Most bugs in old versions are due to different names of functions. For example, ```wavread``` is used in old version rather than ```audioread```. To check if your version of matlab is suitable, type in your matlab console
 ```
 help audioread
 ```
@@ -169,10 +169,12 @@ figure;histogram(Channels,'BinWidth',1)
 xlabel('Channels');ylabel('Number of files');title('Histogram of Channels for all audio files')
 ```
 You will get three histograms:
-![Histogram of audio channels]
-(https://github.com/zhiyuan8/speech_detection/blob/master/figures/3.jpg)
-![Classfier performance for a 20s angry female speech from Internet](https://github.com/zhiyuan8/speech_detection/blob/master/figures/3.jpg)
-![Classfier performance for a 20s angry female speech from Internet](https://github.com/zhiyuan8/speech_detection/blob/master/figures/3.jpg)
+
+(https://github.com/zhiyuan8/speech_detection/blob/master/figures/hist-1.jpg)
+
+(https://github.com/zhiyuan8/speech_detection/blob/master/figures/hist-2.jpg)
+
+(https://github.com/zhiyuan8/speech_detection/blob/master/figures/hist-3.jpg)
 
 Now, go to section ```change Fs, bites()```, specify the directory for your audios and the directory where you want to save new audios. You will change them to your desired sampling frequency and nbits by paste those codes from section ```change Fs, bites()``` into console:  
 ```
