@@ -166,13 +166,9 @@ xlabel('Fs');ylabel('Number of files');title('Histogram of Fs for all audio file
 figure;histogram(Channels,'BinWidth',1)
 xlabel('Channels');ylabel('Number of files');title('Histogram of Channels for all audio files')
 ```
-You will get three histograms:
-![Sampling frequency histogram]
-(https://github.com/zhiyuan8/speech_detection/blob/master/figures/hist-1.jpg)
-![nBits histogram]
-(https://github.com/zhiyuan8/speech_detection/blob/master/figures/hist-2.jpg)
-![Audio channel histogram]
-(https://github.com/zhiyuan8/speech_detection/blob/master/figures/hist-3.jpg)
+You will get three histograms, one of them is as following: 
+
+![Sampling frequency histogram](https://github.com/zhiyuan8/speech_detection/blob/master/figures/hist-1.jpg)
 
 Now, go to section ```change Fs, bites()```, specify the directory for your audios and the directory where you want to save new audios. You will change them to your desired sampling frequency and nbits by paste those codes from section ```change Fs, bites()``` into console:  
 ```
