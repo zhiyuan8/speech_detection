@@ -5,8 +5,8 @@ The classifier is based on audio features (Zero-Cross-Rate, Spectral Flux, Mel-f
 SVM and decision tree are also tested, but are not chosen due to poor performance.  
 My training data, reports and other files can be found at this dropbox link: https://www.dropbox.com/sh/s4fho148k6l3npz/AADJnnfqUJlQU_0QIEMbSsfCa?dl=0
 
-### Prerequisites
-Matlab R2014 or higher (not quite sure...)
+## Prerequisites
+Matlab R2014 or higher (not quite sure...)  
 Most bugs in old versions are due to different names of functions. For example, '''wavread''' is used in old version rather than '''audioread'''. To check if your version of matlab is suitable, type in your matlab console
 ```
 help audioread
@@ -17,7 +17,7 @@ help audiorecorder
 ```
 If the explanations for two functions are listed, then you have them in your current matlab, and you can run my code now.
 
-### Installation and running the code
+## Installation and running the code
 Download my matlab code
 ```
 git clone https://github.com/zhiyuan8/speech_detection.git
@@ -96,13 +96,89 @@ In speech / abusive speech identification, there are around 400 files for each c
 ## Training and Testing by User
 The name of models follows  'Date + usage + features + filter + statistics'. For example, ```model_11_12_speech_abuse_MFCC_filter_6stats``` means that the model used all 6 statistics (max/min/mean/median/standard deviation/ std divided by mean) of MFCC feature with noise filter and is used for abusive speech detection.  
 
+#### Understanding how KNN works
+The KNN model finds k (=10) nearest audios in training datasets and makes the decision. After following instructions in  ```Installation and running the code```, you shall have outputs ```[recorder,samples,label1, P1, trainchosen1, label2, P2, trainchosen2, calc_time]``` in your workingsheet. The ```trainchosen1``` and ```trainchosen2``` stores indices of chosen traning files for 2 classifier.
+Go to file ```my_code_real_time.m``` 's section ``` check chosen file names```. Paste the code in your console:  
+```
+[~, ~, ~, classNames1, FileNames1] = kNN_model_load(modelSpeech_Non);
+for i= 1:length(trainchosen1)
+    ['in second' num2str(i), classNames1{1},' is identified according to']
+    FileNames1{1}(trainchosen1{i,1})
+end
+
+for i= 1:length(trainchosen2)
+    ['in second' num2str(i), classNames1{2}, 'is identified according to']
+    FileNames1{2}(trainchosen1{i,2})
+end
+```
+Now, type in your console
+```
+FileNames1
+```
+And then you will know which files are chosen for your speech/noise identifier. It is important for testers to know, because some bad examples will have side effects. I found that some training files with weak voice will mislead your identifier to regard your speech as noise, while some training files with songs will misguide your identifier to treat noise as human speech.
+
 #### Test models that I have trained in ```models``` folder
+For example, if you want to test whether 'spectral flux + ZCR + Energy Entropy' features work better than 'spectral flux + ZCR' which I choose for speech/noise detection, then copy ```model_11_12_speech_S_Flux_ZCRE_Entropy_filter_6stats.mat``` file from  ```models``` folder to your current directory.  
+Follow the instructions in ```Installation and running the code``` but remember to change your model's name:
+```
+modelSpeech_Non = 'model_11_12_speech_S_Flux_ZCRE_Entropy_filter_6stats.mat';
+```
 
 #### Training your own KNN model
+Users may be more interested in training their own model based on their own collected audios.   
+Go to ```my_code_real_time.m```'s ``` train a KNN-model with desired features + stats``` section. Specify your desired features at ```Feature_Names``` variable, if I want Zero-Cross_rate and Energy, then I will write
+```
+Feature_Names = {'ZCR','E'}
+```
+All features are listed here {'ZCR','E','E_Entropy','S_Centroid','S_Spread','S_Entropy','S_Flux','S_Rolloff','MFCC_01','MFCC_02','MFCC_03','MFCC_04','MFCC_05','MFCC_06','MFCC_07','MFCC_08','MFCC_09','MFCC_10','MFCC_11','MFCC_12','MFCC_13','H_Ratio'}
+Also, remember to change the directory where you save your traning audios:
+```
+strDir =  path to 'speech/noise' folders or 'speech/abuse' folders;
+```
+Paste the section in console and you will get a new ```ModelName.mat``` file.
+```
+stWin=0.05; stStep=0.05; % there will be 20 elements in each window 
+mtWin=1.0; mtStep=1.0; % our discriminative window is 1s
+filter_dec = true; % Remeber to double check it
+Statistics = { 'mean', 'median' , 'min' , 'max' , 'std' , 'std / mean'}; % 6 stats, you can change
+Feature_Names = {'H_Ratio','MFCC_01','MFCC_02','MFCC_03','MFCC_04','MFCC_05','MFCC_06','MFCC_07','MFCC_08'...
+'MFCC_09','MFCC_10','MFCC_11','MFCC_12','MFCC_13'}; % there are 22 features for you to choose
+modelFileName = ['new_model_11_12_speech_abuse_MFCC_H_Ratio_filter_6stats.mat'];  % remember to change model name to your desired one
+strDir = 'C:\Users\Zhiyuan Li\Desktop\Prof_Ashish_Goel\training_data\speech_abuse\'; %remember to change folder directory
+kNN_model_add_class(modelFileName, 'abuse', [strDir 'abuse'], Statistics, Feature_Names, stWin, stStep, mtWin, mtStep,filter_dec); % remember to change the class 1 to your desired one
+kNN_model_add_class(modelFileName, 'speech', [strDir 'speech'], Statistics, Feature_Names, stWin, stStep, mtWin, mtStep,filter_dec);% remember to change the class 2 to your desired one
+```
 
 #### Unify sampling frequency and nbits of audio files for model training
+Audios may be in different sampling frequency and differnt nbits. So I write a matlab script to unify them.  
+Open ```my_code_change_audio.m```. Go to ```check Fz and bits of audios``` section and change the path to the directory where you download your audios. Paste the codes in console
+```
+clear all;% close worksheet
+clc;% close console
+fclose('all'); % close all open files
+path= 'C:\Users\Zhiyuan Li\Desktop\Prof_Ashish_Goel\training_data\speech_non_speech\speech'; % remember to change your directory
+[Bits, Fs, Channels, FileNames] = check_bits_Fz(path);
+```
+Now, plot the histogram and you will see how 'nbits', 'sample frequency' and 'number of audio channels' distrbute. Paste the code in ```plot distribution of Bit_temp & Fs_temp```
+```
+figure;histogram(Bits)
+xlabel('Bits');ylabel('Number of files');title('Histogram of Bits for all audio files')
+figure;histogram(Fs)
+xlabel('Fs');ylabel('Number of files');title('Histogram of Fs for all audio files')
+figure;histogram(Channels,'BinWidth',1)
+xlabel('Channels');ylabel('Number of files');title('Histogram of Channels for all audio files')
+```
+You will get three histograms:
 
-#### Try decision tree and SVM models
+Now, go to section ```change Fs, bites()```, specify the directory for your audios and the directory where you want to save new audios. You will change them to your desired sampling frequency and nbits by paste those codes from section ```change Fs, bites()``` into console:  
+```
+Fs_new = 16000; % New Fs, for those audios with Fs<Fs_new, they will be omitted
+bit_new = 16; % New bit
+path= 'C:\Users\Zhiyuan Li\Desktop\Prof_Ashish_Goel\training_data\speech_non_speech'; % remember to change your directory
+pathNew= 'C:\Users\Zhiyuan Li\Desktop\Prof_Ashish_Goel\training_data\speech_non_speech\new'; % remember to change your directory and make sure this folder exists
+change_bit_Fz(path,pathNew,Fs_new,bit_new);
+```
+Your desired files will be generated in your new working directory.
 
 ## Contributing
 
@@ -112,4 +188,4 @@ Email: zhiyuan.li1995@hotmail.com
 ## Acknowledgments
 
 * Thanks for Theodoros Giannakopoulos's Matlab Audio Analysis Library and his wonderful book <Introduction to Audio Analysis> (https://www.elsevier.com/books/introduction-to-audio-analysis/giannakopoulos/978-0-08-099388-1)
-* Thanks for Professor Ashish Goel for this giving project.Thanks for Nikhil Garg's and Sukolsak Sakshuwong's advice during weekly meetings.
+* Thanks for Professor Ashish Goel for this giving project.Thanks for advice from Nikhil Garg, Sukolsak Sakshuwong and Lodewijk Gelauff during weekly meetings.
