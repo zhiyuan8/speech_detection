@@ -41,11 +41,11 @@ else
 end
 KNN_Non=10; %
 KNN_Abuse=10;
-durationSecs=30;
+durationSecs=20;
 Fs=16000; %Keep consistant with 16 kHz that I use for training datasets
 nbit=16; %Keep consistant with 16 nbits that I use for training datasets
 ```
-The only part you shall change is 'durationSecs' which indicates the length of this audio recording. I set it as 30s. The codes above tells matlab what features you choose for detection, as well as parameters for audio recorder and classifier.  
+The only part you shall change is 'durationSecs' which indicates the length of this audio recording. I set it as 20s. The codes above tells matlab what features you choose for detection, as well as parameters for audio recorder and classifier.  
 Then, paste the code above in matlab console to launch detection:
 ```
 [recorder,samples,label1, P1, trainchosen1, label2, P2, trainchosen2, calc_time] ...
