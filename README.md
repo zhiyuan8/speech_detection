@@ -1,7 +1,7 @@
 # A Demo
 
 This matlab classifier aims to distinguish normal speech, abusive/angry/violate speech and environmental noise.  
-The classifier is based on audio features (Zero-Cross-Rate, Spectral Flux, Mel-frequency cepstral coefficients & Harmonic Ratio) and KNN.   
+The speech/noise classifier is based on audio features Zero-Cross-Rate and Spectral Flux, the abusive speech classifier is based on features Mel-frequency cepstral coefficients and Harmonic Ratio. The classifier uses K-Nearest-Neighbors.   
 SVM and decision tree are also tested, but are not chosen due to poor performance.  
 My training data, reports and other files can be found at this dropbox link: https://www.dropbox.com/sh/s4fho148k6l3npz/AADJnnfqUJlQU_0QIEMbSsfCa?dl=0
 
@@ -45,7 +45,7 @@ durationSecs=30;
 Fs=16000; %Keep consistant with 16 kHz that I use for training datasets
 nbit=16; %Keep consistant with 16 nbits that I use for training datasets
 ```
-The only part you shall change is 'durationSecs' which indicates the length of this audio recording. I set it as 30s. The codes above tells matlab what features you choose for detection, and the parameters for audio recorder and KNN classifier.
+The only part you shall change is 'durationSecs' which indicates the length of this audio recording. I set it as 30s. The codes above tells matlab what features you choose for detection, as well as parameters for audio recorder and classifier.  
 Then, paste the code above in matlab console to launch detection:
 ```
 [recorder,samples,label1, P1, trainchosen1, label2, P2, trainchosen2, calc_time] ...
@@ -76,14 +76,14 @@ In speech / environmental noise identification, there are around 1000 files for 
 
 | Class | Description |# of files | Database| Comments|
 | --- | --- | --- | --- | --- |
-| Speech | Voice on phone | ≈350 | http://www.speech.cs.cmu.edu/databases/pda/ | a | 
-| Speech | Daily speech | ≈100 | https://github.com/amsehili/noise-of-life | a |
-| Speech | 'A' 'E' 'I' 'O' 'U' | ≈50 | https://github.com/vocobox/human-voice-dataset | a |
-| Speech | Male/female/baby scream or cry | ≈200 | https://github.com/amsehili/noise-of-life | a |
-| Speech | Scream, shout | ≈50 | https://www.freesoundeffects.com/free-sounds/human-sound-effects-10037/ | a |
-| Speech | angry abusive speeches | ≈200 | https://freesound.org/search/?q=abusive&f=&s=score+desc&advanced=0&g=1 | a |
-| Noice | Noise in life(animals, music, cars, alarms, machines...)| ≈800 | https://github.com/karoldvl/ESC-50 | a |
-| Noice | Noise indoor (breath, yawns, keyboards, electronic devices...)| ≈200 | https://github.com/amsehili/noise-of-life | a |
+| Speech | Voice on phone | ≈350 | http://www.speech.cs.cmu.edu/databases/pda/ | Very clear speech via phone | 
+| Speech | Daily speech | ≈100 | https://github.com/amsehili/noise-of-life | Use 'speech' folder |
+| Speech | 'A' 'E' 'I' 'O' 'U' | ≈50 | https://github.com/vocobox/human-voice-dataset | Pronouncation for AEIOU |
+| Speech | Male/female/baby scream or cry | ≈200 | https://github.com/amsehili/noise-of-life | Use 'maleScream' 'femaleScream' 'babyCry' 'femaleCry' |
+| Speech | Scream, shout | ≈50 | https://www.freesoundeffects.com/free-sounds/human-sound-effects-10037/ | Search 'scream','shout' |
+| Speech | angry abusive speeches | ≈200 | https://freesound.org/search/?q=abusive&f=&s=score+desc&advanced=0&g=1 | Search 'f_ck', 'sh_t','abusive','cursive'... Be ready for a mental pollution... |
+| Noice | Noise in life(animals, music, cars, alarms, machines...)| ≈800 | https://github.com/karoldvl/ESC-50 | Randomly choose some |
+| Noice | Noise indoor (breath, yawns, keyboards, electronic devices...)| ≈200 | https://github.com/amsehili/noise-of-life | Use 'breathing','doorClapping','electricalShalver','hairDryer','handsClapping','keyBoards','Keys','Music','Water','yawn' |
 
 In speech / abusive speech identification, there are around 400 files for each class. The comments help you find the corresponding folder after you download the whole datasets.
 
@@ -105,15 +105,13 @@ for i= 1:length(trainchosen1)
     ['in second' num2str(i), classNames1{1},' is identified according to']
     FileNames1{1}(trainchosen1{i,1})
 end
-
+```
+Now, the selected training audios to identify class 1 ('speech' in this case) will be outputed. Also, you can paste this to see selected audio samples to detect class 2 ('noise' in this case) 
+```
 for i= 1:length(trainchosen2)
     ['in second' num2str(i), classNames1{2}, 'is identified according to']
     FileNames1{2}(trainchosen1{i,2})
 end
-```
-Now, type in your console
-```
-FileNames1
 ```
 And then you will know which files are chosen for your speech/noise identifier. It is important for testers to know, because some bad examples will have side effects. I found that some training files with weak voice will mislead your identifier to regard your speech as noise, while some training files with songs will misguide your identifier to treat noise as human speech.
 
