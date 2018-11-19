@@ -78,10 +78,11 @@ In speech / environmental noise identification, there are around 1000 files for 
 | --- | --- | --- | --- | --- |
 | Speech | Voice on phone | ≈350 | http://www.speech.cs.cmu.edu/databases/pda/ | Very clear speech via phone | 
 | Speech | Daily speech | ≈100 | https://github.com/amsehili/noise-of-life | Use 'speech' folder |
+| Speech | Daily speech | ≈50 | https://freesound.org/search/?q=speech&f=&s=score+desc&advanced=0&g=1 | Search 'speech' |
 | Speech | 'A' 'E' 'I' 'O' 'U' | ≈50 | https://github.com/vocobox/human-voice-dataset | Pronouncation for AEIOU |
 | Speech | Male/female/baby scream or cry | ≈200 | https://github.com/amsehili/noise-of-life | Use 'maleScream' 'femaleScream' 'babyCry' 'femaleCry' |
 | Speech | Scream, shout | ≈50 | https://www.freesoundeffects.com/free-sounds/human-sound-effects-10037/ | Search 'scream','shout' |
-| Speech | angry abusive speeches | ≈200 | https://freesound.org/search/?q=abusive&f=&s=score+desc&advanced=0&g=1 | Search 'f_ck', 'sh_t','abusive','cursive'... Be ready for a mental pollution... |
+| Speech | angry abusive speeches | ≈200 | https://freesound.org/search/?q=abusive&f=&s=score+desc&advanced=0&g=1 | Search 'f\*ck', 'sh\*t','abusive','cursive'... Be ready for a mental pollution... |
 | Noice | Noise in life(animals, music, cars, alarms, machines...)| ≈800 | https://github.com/karoldvl/ESC-50 | Randomly choose some |
 | Noice | Noise indoor (breath, yawns, keyboards, electronic devices...)| ≈200 | https://github.com/amsehili/noise-of-life | Use 'breathing','doorClapping','electricalShalver','hairDryer','handsClapping','keyBoards','Keys','Music','Water','yawn' |
 
