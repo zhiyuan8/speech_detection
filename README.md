@@ -1,7 +1,8 @@
 # A Demo
 
 This matlab classifier aims to distinguish normal speech, abusive/angry/violate speech and environmental noise.  
-The classifier is based on audio features and KNN. SVM and decision tree are also tested, but are not chosen due to poor performance.  
+The classifier is based on audio features (Zero-Cross-Rate, Spectral Flux, Mel-frequency cepstral coefficients & Harmonic Ratio) and KNN.   
+SVM and decision tree are also tested, but are not chosen due to poor performance.  
 My training data, reports and other files can be found at this dropbox link: https://www.dropbox.com/sh/s4fho148k6l3npz/AADJnnfqUJlQU_0QIEMbSsfCa?dl=0
 
 ### Prerequisites
@@ -21,7 +22,7 @@ Download my matlab code
 ```
 git clone https://github.com/zhiyuan8/speech_detection.git
 ```
-Change your Matlab working directory to the folder where you download my code. Open '''my_code_real_time.m''' file. Go to ```load KNN model and do normalization``` section, paste the code in your matlab console.
+Change your Matlab working directory to the folder where you download my code. Open ```my_code_real_time.m``` file. Go to ```load KNN model and do normalization``` section, paste the code in your matlab console.
 ```
 clear all;% close worksheet
 clc;% close console
@@ -93,7 +94,15 @@ In speech / abusive speech identification, there are around 400 files for each c
 |Normal Speech | Randomly choosen speeches | ≈400 | from 'Voice on phone' and 'Daily speech' above | Randomly choosen files |
 
 ## Training and Testing by User
-To be continued
+The name of models follows  'Date + usage + features + filter + statistics'. For example, ```model_11_12_speech_abuse_MFCC_filter_6stats``` means that the model used all 6 statistics (max/min/mean/median/standard deviation/ std divided by mean) of MFCC feature with noise filter and is used for abusive speech detection.  
+
+#### Test models that I have trained in ```models``` folder
+
+#### Training your own KNN model
+
+#### Unify sampling frequency and nbits of audio files for model training
+
+#### Try decision tree and SVM models
 
 ## Contributing
 
